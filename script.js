@@ -73,9 +73,7 @@ function handleTap() {
      backBtn.style.display = "block";
           credit.style.display = "block";
 
-   setTimeout(() => {
-  speakText();
-}, 500);
+    speakText()
   }
   else if(buttonClicked)
   {
