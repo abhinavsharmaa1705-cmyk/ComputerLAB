@@ -90,7 +90,6 @@ function handleTap() {
 
 window.addEventListener("touchend", handleTap);
 window.addEventListener("click", handleTap);
-
 let isDragging = false;
 let previousMouseX = 0;
 let previousMouseY = 0;
@@ -183,7 +182,6 @@ window.addEventListener(
   "wheel",
   (e) => {
     e.preventDefault();
-
     const zoomSpeed = 0.001;
     currentScale -= e.deltaY * zoomSpeed;
 
@@ -236,7 +234,7 @@ speechSynthesis.onvoiceschanged = () => {
 
  const speakText = () => {
   speechSynthesis.cancel();
-    const text = "CPU (Central Processing Unit)\nThe brain of the computer 🧠\nExecutes instructions, performs calculations, and controls all operations.\nKey parts:\n• ALU (math & logic)\n• Control Unit\n• Registers\n\nSSD (Solid State Drive)\n(Secondary Memory)\nPermanent storage 💾\nStores OS, apps, and files with high speed.\nInside:\n• Flash memory\n• Controller\n\nGPU (Graphics Processing Unit)\nThe computer’s artist 🎮\nIt makes everything you see look smooth and real.\nWhat it does:\n• Shows images, videos, and games\n• Handles many tasks at once\nInside:\n• Lots of small cores\n• VRAM (video memory)\n\nMotherboard\nThe system’s central hub .It connects all components and controls how they interact. \n • Supports communication between CPU, RAM, and storage \n • Coordinates data transfer  \n• Powers and integrates all hardware\n\nRAM (Random Access Memory)\nShort-term memory ⚡\nStores active data for fast access.\nFeatures:\n• Very fast\n• Volatile (data lost when off)"
+    const text = "CPU (Central Processing Unit)\nThe brain of the computer 🧠\nExecutes instructions, performs calculations, and controls all operations.\nKey parts:\n• A L U (math & logic)\n• Control Unit\n• Registers\n\nSSD (Solid State Drive)\n(Secondary Memory)\nPermanent storage 💾\nStores OS, apps, and files with high speed.\nInside:\n• Flash memory\n• Controller\n\nGPU (Graphics Processing Unit)\nThe computer’s artist 🎮\nIt makes everything you see look smooth and real.\nWhat it does:\n• Shows images, videos, and games\n• Handles many tasks at once\nInside:\n• Lots of small cores\n• VRAM (video memory)\n\nMotherboard\nThe system’s central hub .It connects all components and controls how they interact. \n • Supports communication between CPU, RAM, and storage \n • Coordinates data transfer  \n• Powers and integrates all hardware\n\nRAM (Random Access Memory)\nShort-term memory ⚡\nStores active data for fast access.\nFeatures:\n• Very fast\n• Volatile (data lost when off)"
 
     const speech = new SpeechSynthesisUtterance(text);
     speech.rate = 1;      // speed (0.5 - 2)
