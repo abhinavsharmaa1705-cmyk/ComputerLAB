@@ -13,7 +13,7 @@ let dragThreshold = 5;
 let isPinching = false;
 let gestureMoved = false;
 let buttonClicked = false;
-backBtn.addEventListener("click", () => {
+backBtn.addEventListener("̥click", () => {
 buttonClicked=true;
 });
 
@@ -81,7 +81,7 @@ function handleTap() {
     partsWrapper.setAttribute("visible", false);
      backBtn.style.display = "none";
           credit.style.display = "none";
-
+buttonClicked=false;
        toggleSpeech()
 
 
