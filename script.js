@@ -19,6 +19,13 @@ backBtn.addEventListener("click",(e) => {
   handleTap(true);
 });
 
+backBtn.addEventListener("touchend", (e) => {
+  e.stopPropagation();
+  e.preventDefault();  
+  buttonClicked = true;
+  handleTap(true);
+})
+
 AFRAME.registerComponent('lock-rotation', {
   init: function () {
     this.smoothRot = { x: 0, y: 0, z: 0 };
