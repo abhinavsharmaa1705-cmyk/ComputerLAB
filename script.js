@@ -5,7 +5,11 @@ const bgdiv = document.getElementById('ar-bg');
 const backBtn = document.querySelector("#backBtn");
 const credit = document.querySelector("#credit");
 
+let smoothPos = { x: 0, y: 0, z: 0 };
+let smoothRot = { x: 0, y: 0, z: 0 };
+const SMOOTH = 0.15; // lower = smoother but more lag
 
+function lerp(a, b, t) { return a + (b - a) * t; }
 
 let isTargetFound = false;
 let hasDragged = false;
@@ -35,6 +39,26 @@ AFRAME.registerComponent('lock-rotation', {
 
 
 target.addEventListener("targetFound", () => {
+const tick = () => {
+    if (!isTargetFound) return;
+    const rawPos = target.getAttribute("position");
+    const rawRot = target.getAttribute("rotation");
+    if (!rawPos || !rawRot) { requestAnimationFrame(tick); return; }
+
+    smoothPos.x = lerp(smoothPos.x, rawPos.x, SMOOTH);
+    smoothPos.y = lerp(smoothPos.y, rawPos.y, SMOOTH);
+    smoothPos.z = lerp(smoothPos.z, rawPos.z, SMOOTH);
+    smoothRot.x = lerp(smoothRot.x, rawRot.x, SMOOTH);
+    smoothRot.y = lerp(smoothRot.y, rawRot.y, SMOOTH);
+    smoothRot.z = lerp(smoothRot.z, rawRot.z, SMOOTH);
+
+    pcWrapper.setAttribute("position", smoothPos);
+    pcWrapper.setAttribute("rotation", smoothRot);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+
   isTargetFound = true;
   bgdiv.classList.add('ar-bg');
 

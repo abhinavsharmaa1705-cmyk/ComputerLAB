@@ -114,10 +114,15 @@
                 filterBeta: 0.001"
 > -->
 <a-scene
-  mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.1; filterBeta: 0.01"
   color-space="sRGB"
   renderer="colorManagement: true, physicallyCorrectLights"
   vr-mode-ui="enabled: false"
+   mindar-image="imageTargetSrc: ./targets.mind;
+                autoStart: true;
+                filterMinCF: 0.001;
+                filterBeta: 0.01;
+                warmupTolerance: 5;
+                missTolerance: 5"
 >
       <a-assets>
         <a-asset-item id="pcModel" src="./pc_model.glb"></a-asset-item>
