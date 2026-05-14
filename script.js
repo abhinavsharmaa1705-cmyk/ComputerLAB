@@ -14,7 +14,9 @@ let isPinching = false;
 let gestureMoved = false;
 let buttonClicked = false;
 backBtn.addEventListener("̥click", () => {
-buttonClicked=true;
+ e.stopPropagation(); 
+  buttonClicked = true;
+  handleTap();
 });
 
 AFRAME.registerComponent('lock-rotation', {
@@ -81,8 +83,8 @@ function handleTap() {
     partsWrapper.setAttribute("visible", false);
      backBtn.style.display = "none";
           credit.style.display = "none";
-buttonClicked=false;
        toggleSpeech()
+       buttonClicked=false;
 
 
   }
