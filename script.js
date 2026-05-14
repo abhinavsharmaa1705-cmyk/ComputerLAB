@@ -18,18 +18,18 @@ buttonClicked=true;
 });
 
 AFRAME.registerComponent('lock-rotation', {
-  init: function () {
-    this.smoothRot = { x: 0, y: 0, z: 0 };
-  },
   tick: function () {
     const parent = this.el.parentEl;
     if (!parent) return;
+
     const parentRot = parent.getAttribute('rotation');
-    // Lerp instead of hard snap — reduces jitter
-    this.smoothRot.x += (-parentRot.x - this.smoothRot.x) * 0.3;
-    this.smoothRot.y += (-parentRot.y - this.smoothRot.y) * 0.3;
-    this.smoothRot.z += (-parentRot.z - this.smoothRot.z) * 0.3;
-    this.el.setAttribute('rotation', this.smoothRot);
+
+    // Cancel parent's rotation
+    this.el.setAttribute('rotation', {
+      x: -parentRot.x,
+      y: -parentRot.y,
+      z: -parentRot.z
+    });
   }
 });
 

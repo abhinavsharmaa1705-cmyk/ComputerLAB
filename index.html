@@ -102,7 +102,7 @@
     <!-- <div id="guide">Scan the QR code with your camera, click link, and experience the magic</div> -->
 <div id="ar-bg"></div>
 <button id="backBtn">⬅ Back</button>
-    <!-- <a-scene
+    <a-scene
       mindar-image="imageTargetSrc: ./targets.mind; autoStart: true;"
       gesture-detector
       color-space="sRGB"
@@ -112,13 +112,8 @@
   mindar-image="imageTargetSrc: targets.mind; 
                 filterMinCF: 0.0001; 
                 filterBeta: 0.001"
-> -->
-<a-scene
-  mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.1; filterBeta: 0.01"
-  color-space="sRGB"
-  renderer="colorManagement: true, physicallyCorrectLights"
-  vr-mode-ui="enabled: false"
 >
+
       <a-assets>
         <a-asset-item id="pcModel" src="./pc_model.glb"></a-asset-item>
         <a-asset-item id="cpuModel" src="./cpu.glb"></a-asset-item>
@@ -162,7 +157,7 @@
             scale="0.2 0.2 0.2"
           >
           </a-gltf-model>
-<a-entity id="stable-wrapper" position="0 -1 0" lock-rotation>
+<a-entity position="0 -1 0" lock-rotation>
 
   <a-plane 
     width="3.5" 
