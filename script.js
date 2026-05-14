@@ -21,7 +21,6 @@ backBtn.addEventListener("click",(e) => {
 
 backBtn.addEventListener("touchend", (e) => {
   e.stopPropagation();
-  e.preventDefault();  
   buttonClicked = true;
   handleTap(true);
 })
