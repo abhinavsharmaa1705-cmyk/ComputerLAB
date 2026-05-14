@@ -13,10 +13,10 @@ let dragThreshold = 5;
 let isPinching = false;
 let gestureMoved = false;
 let buttonClicked = false;
-backBtn.addEventListener("̥click", () => {
- e.stopPropagation(); 
+backBtn.addEventListener("click",(e) => {
+  e.stopPropagation();
   buttonClicked = true;
-  handleTap();
+  handleTap(true);
 });
 
 AFRAME.registerComponent('lock-rotation', {
@@ -58,7 +58,7 @@ target.addEventListener("targetLost", () => {
 
   toggleSpeech()
 });
-function handleTap() {
+function handleTap(fromButton) {
   if (!isTargetFound) return;
   
   if (hasDragged || gestureMoved || isPinching) {
@@ -72,21 +72,18 @@ function handleTap() {
   if (isPcVisible) {
     pcWrapper.setAttribute("visible", !isPcVisible);
     partsWrapper.setAttribute("visible", isPcVisible);
-     backBtn.style.display = "block";
-          credit.style.display = "block";
-
+    backBtn.style.display = "block";
+    credit.style.display = "block";
     speakText()
   }
-  else if(buttonClicked)
+  else if(buttonClicked && fromButton )
   {
-        pcWrapper.setAttribute("visible",true);
+    pcWrapper.setAttribute("visible",true);
     partsWrapper.setAttribute("visible", false);
-     backBtn.style.display = "none";
-          credit.style.display = "none";
-       toggleSpeech()
-       buttonClicked=false;
-
-
+    backBtn.style.display = "none";
+    credit.style.display = "none";
+    toggleSpeech()
+    buttonClicked=false;
   }
 }
 
